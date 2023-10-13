@@ -2,15 +2,16 @@
     session_start();
     include("db.php");
 
- ?>    
+?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Form</title>
-    <style>
+    <title>Registration Form</title>
+ 
+<style>
  body{
    width: 100%;
    height: 100vh;
@@ -62,36 +63,49 @@ input[type="submit"]{
     cursor: pointer;
 
 }
+
 </style>
 </head>
-<body>
-    <div class="Login Form"> 
-        <h1>Login Form</h1>
+<body>  
+    <div class="Registration Form">
+        <h1>Registration Form</h1>
         <form method="POST">
+            <label>Username</label>
+            <input type="text" name="username" id="username">
             <label>Email</label>
             <input type="text" name="email" id="email">
+            <label>Contact No</label>
+            <input type="text" name="contact_no" id="contact_no">
             <label>Password</label>
-            <input type="text" name="password" id="password">  
+            <input type="text" name="password" id="password"> 
+            <label>Confirm Password</label>
+            <input type="text" name="confirm_password" id="confirm_password"> 
             <input type="Submit" name="" value="Submit" onclick="submitForm();">
-            <p>Not have an account? <a href="register.php">Register here</a></p>
-        </form>
+            <p>Already have an account? <a href="login.php">Login Here</a></p>
+        </form>  
+    </div>
 
     <script>
     function submitForm(){
+       var username = document.getElementById('username').value;
        var email = document.getElementById('email').value;
+       var contact_no = document.getElementById('contact_no').value;
        var password = document.getElementById('password').value;
+       var confirm_password = document.getElementById('confirm_password').value;
 
-       var params= "src=login&n1="+email+"&n2="+password;
+       var params= "src=register&n1="+username+"&n2="+email+"&n3="+contact_no+"&n4="+password+"&n5="+confirm_password;
 
         // alert(params);
         
-        var http = new XMLHttpRequest();
+
+
+       var http = new XMLHttpRequest();
 		var url = 'controller.php';
 
 
         http.onreadystatechange = function() {
 			if(http.readyState == 4 && http.status == 200) {
-                alert("Login Successfully");
+                alert("Registration done successfully");
             }
         }	
 			
@@ -101,5 +115,6 @@ input[type="submit"]{
 
     }
     </script>
-</body>        
+</body>
 </html>
+
