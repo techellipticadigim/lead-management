@@ -123,7 +123,7 @@ input[type="submit"]{
        var next_action = document.getElementById('next_action').value;
        var lead_by = document.getElementById('lead_by').value;
 
-       var params= "n1="+lead_title+"&n2="+lead_category+"&n3="+description+"&n4="+next_action+"&n5="+lead_by;
+       var params= "src=leadform&n1="+lead_title+"&n2="+lead_category+"&n3="+description+"&n4="+next_action+"&n5="+lead_by;
 
         //alert(params);
         
